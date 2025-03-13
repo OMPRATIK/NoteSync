@@ -7,10 +7,37 @@ import TableCell from "@tiptap/extension-table-cell";
 import TableHeader from "@tiptap/extension-table-header";
 import TableRow from "@tiptap/extension-table-row";
 import Image from "@tiptap/extension-image";
+import Underline from "@tiptap/extension-underline";
+import FontFamily from "@tiptap/extension-font-family";
 import ImageResize from "tiptap-extension-resize-image";
 
+import { useEditorStore } from "@/store/use-editor-store";
+
 export default function Editor() {
+  const { setEditor } = useEditorStore();
+
   const editor = useEditor({
+    onCreate({ editor }) {
+      setEditor(editor);
+    },
+    onDestroy() {
+      setEditor(null);
+    },
+    onUpdate({ editor }) {
+      setEditor(editor);
+    },
+    onSelectionUpdate({ editor }) {
+      setEditor(editor);
+    },
+    onTransaction({ editor }) {
+      setEditor(editor);
+    },
+    onFocus({ editor }) {
+      setEditor(editor);
+    },
+    onContentError({ editor }) {
+      setEditor(editor);
+    },
     editorProps: {
       attributes: {
         style: "padding-left: 56px; padding-right: 56px;",
@@ -32,6 +59,8 @@ export default function Editor() {
       TableCell,
       Image,
       ImageResize,
+      Underline,
+      FontFamily,
     ],
     content: `<table>
           <tbody>

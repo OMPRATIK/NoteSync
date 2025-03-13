@@ -5,14 +5,16 @@ import Document from "./pages/Document";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/document/:id" element={<Document />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <div className="dark">
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/document/:id" element={<Document />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
