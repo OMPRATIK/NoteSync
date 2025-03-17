@@ -5,7 +5,7 @@ import Document from "./pages/Document";
 
 function App() {
   return (
-    <div className="dark">
+    <div className="">
       <BrowserRouter>
         <Routes>
           <Route element={<Layout />}>
