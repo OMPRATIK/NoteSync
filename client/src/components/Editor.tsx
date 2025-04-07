@@ -12,6 +12,7 @@ import FontFamily from "@tiptap/extension-font-family";
 import ImageResize from "tiptap-extension-resize-image";
 
 import { useEditorStore } from "@/store/use-editor-store";
+import TextStyle from "@tiptap/extension-text-style";
 
 export default function Editor() {
   const { setEditor } = useEditorStore();
@@ -61,6 +62,7 @@ export default function Editor() {
       ImageResize,
       Underline,
       FontFamily,
+      TextStyle,
     ],
     content: `<table>
           <tbody>
