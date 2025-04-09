@@ -30,6 +30,55 @@ type ToolbarButtonProps = {
   onClick?(): void;
 };
 
+function TextColorButton() {
+  const { editor } = useEditorStore();
+
+  const value = editor?.getAttributes("textStyle").color || "#000000";
+
+  return (
+    <div className="relative px-1 cursor-pointer h-7 min-w-7 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 overflow-hidden text-sm">
+      <span className="text-xs">A</span>
+      <input
+        data-testid="setColor"
+        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+        type="color"
+        onChange={(event) => {
+          editor?.chain().focus().setColor(event.target.value).run();
+        }}
+        value={value}
+      />
+      <div
+        className="w-full h-1 rounded-md"
+        style={{ backgroundColor: value }}
+      ></div>
+    </div>
+  );
+}
+// function TextColorButton() {
+//   const { editor } = useEditorStore();
+
+//   const value = editor?.getAttributes("textStyle").color || "#000000";
+
+//   function onChange(color: ColorResult) {
+//     editor?.chain().focus().setColor(color.hex).run();
+//   }
+
+//   return (
+//     <DropdownMenu>
+//       <DropdownMenuTrigger asChild>
+//         <button className="px-1 cursor-pointer h-7 min-w-7 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 overflow-hidden text-sm">
+//           <span className="text-xs">A</span>
+//           <div className="h-1 w-full" style={{ backgroundColor: value }}></div>
+//         </button>
+//       </DropdownMenuTrigger>
+
+//       <DropdownMenuContent className="p-2.5">
+//         <CirclePicker color={value} onChange={onChange} />
+//       </DropdownMenuContent>
+//     </DropdownMenu>
+//   );
+// }
+
 function ToolbarButton({ onClick, isActive, icon: Icon }: ToolbarButtonProps) {
   return (
     <button
@@ -235,6 +284,8 @@ export default function Toolbar() {
       {sections[1].map((item) => (
         <ToolbarButton key={item.label} {...item} />
       ))}
+      {/* <Separator orientation="vertical" className="h-6 bg-neutral-300" /> */}
+      <TextColorButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       {sections[2].map((item) => (
         <ToolbarButton key={item.label} {...item} />

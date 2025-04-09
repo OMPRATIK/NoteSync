@@ -10,6 +10,8 @@ import Image from "@tiptap/extension-image";
 import Underline from "@tiptap/extension-underline";
 import FontFamily from "@tiptap/extension-font-family";
 import ImageResize from "tiptap-extension-resize-image";
+import { Color } from "@tiptap/extension-color";
+import Highlight from "@tiptap/extension-highlight";
 
 import { useEditorStore } from "@/store/use-editor-store";
 import TextStyle from "@tiptap/extension-text-style";
@@ -63,6 +65,8 @@ export default function Editor() {
       Underline,
       FontFamily,
       TextStyle,
+      Color,
+      Highlight.configure({ multicolor: true }),
     ],
     content: `<table>
           <tbody>
