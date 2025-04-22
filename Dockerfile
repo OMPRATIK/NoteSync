@@ -8,6 +8,7 @@ RUN npm run build
 
 # Stage 2: Serve
 FROM nginx:alpine
+EXPOSE 80
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 COPY --from=builder /app/dist .
