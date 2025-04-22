@@ -4,7 +4,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . . 
-RUN npx convex deploy --cmd 'npm run build'
+RUN npm run build
 
 # Stage 2: Serve
 FROM nginx:alpine
