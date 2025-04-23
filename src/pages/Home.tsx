@@ -15,8 +15,8 @@ export default function Home() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="p-2 sm:p-4 fixed top-0 right-0 left-0 z-10 h-16 bg-white ">
+    <div className="min-h-screen flex flex-col dark:bg-neutral-900">
+      <div className="p-2 sm:p-4 fixed top-0 right-0 left-0 z-10 h-16 bg-white dark:bg-neutral-900">
         <Navbar />
       </div>
       <div className="mt-16">

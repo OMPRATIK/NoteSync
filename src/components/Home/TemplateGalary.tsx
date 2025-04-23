@@ -29,7 +29,7 @@ export default function TemplateGalary() {
       });
   }
   return (
-    <div className="bg-[#F1F3F4]">
+    <div className="bg-[#F1F3F4] dark:bg-neutral-800/50">
       <div className="max-w-screen-xl mx-auto px-16 py-6 flex flex-col gap-y-4">
         <h3 className="font-medium">Start a new document</h3>
         <Carousel>
@@ -63,8 +63,8 @@ export default function TemplateGalary() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselNext className="cursor-pointer" />
-          <CarouselPrevious className="cursor-pointer" />
+          <CarouselNext className="cursor-pointer dark:bg-neutral-900" />
+          <CarouselPrevious className="cursor-pointer dark:bg-neutral-900" />
         </Carousel>
       </div>
     </div>
