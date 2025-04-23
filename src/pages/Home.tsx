@@ -8,7 +8,7 @@ import { useSearchParam } from "@/hooks/use-search-params";
 export default function Home() {
   const [search] = useSearchParam("search");
 
-  const { results, status, loadMore } = usePaginatedQuery(
+  const { results, status, loadMor } = usePaginatedQuery(
     api.documents.get,
     { search },
     { initialNumItems: 5 }
