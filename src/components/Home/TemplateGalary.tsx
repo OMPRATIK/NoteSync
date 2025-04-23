@@ -28,6 +28,7 @@ export default function TemplateGalary() {
         setCreating(false);
       });
   }
+
   return (
     <div className="bg-[#F1F3F4] dark:bg-neutral-800/50">
       <div className="max-w-screen-xl mx-auto px-16 py-6 flex flex-col gap-y-4">

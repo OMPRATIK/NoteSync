@@ -8,7 +8,7 @@ import { useSearchParam } from "@/hooks/use-search-params";
 export default function Home() {
   const [search] = useSearchParam("search");
 
-  const { results, status, loadMor } = usePaginatedQuery(
+  const { results, status, loadMore } = usePaginatedQuery(
     api.documents.get,
     { search },
     { initialNumItems: 5 }
@@ -21,6 +21,7 @@ export default function Home() {
       </div>
       <div className="mt-16">
         <TemplateGalary />
+
         <DocumentsTable
           documents={results}
           loadMore={loadMore}

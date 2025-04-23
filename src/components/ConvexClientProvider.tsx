@@ -21,7 +21,7 @@ export function ConvexClientProvider({
       <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
         <Authenticated>{children}</Authenticated>
         <Unauthenticated>
-          <div>
+          <div className="min-h-screen flex flex-col items-center justify-center gap-2 dark:bg-neutral-800 ">
             <SignIn />
           </div>
         </Unauthenticated>

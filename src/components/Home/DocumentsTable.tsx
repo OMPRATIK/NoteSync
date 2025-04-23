@@ -28,18 +28,22 @@ export default function DocumentsTable({
     <div className="max-w-screen-xl mx-auto px-16 flex flex-col gap-5 pt-6">
       <h3 className="font-medium">Recent documents</h3>
       {!documents && (
-        <LoaderIcon className="animate-spin text-muted-foreground size-5" />
+        <div className="w-full h-full flex items-center justify-center">
+          <LoaderIcon className="animate-spin text-muted-foreground size-5" />
+        </div>
       )}
       {documents && (
         <Table>
-          <TableHeader>
-            <TableRow className="hover:bg-transparent border-none">
-              <TableHead>Name</TableHead>
-              <TableHead>&nbsp;</TableHead>
-              <TableHead>Shared</TableHead>
-              <TableHead>Created at</TableHead>
-            </TableRow>
-          </TableHeader>
+          {documents.length !== 0 && (
+            <TableHeader>
+              <TableRow className="hover:bg-transparent border-none">
+                <TableHead>Name</TableHead>
+                <TableHead>&nbsp;</TableHead>
+                <TableHead>Shared</TableHead>
+                <TableHead>Created at</TableHead>
+              </TableRow>
+            </TableHeader>
+          )}
           {documents.length === 0 && (
             <TableBody>
               <TableRow className="hover:bg-transparent">
@@ -67,6 +71,7 @@ export default function DocumentsTable({
           size="sm"
           onClick={() => loadMore(5)}
           disabled={status !== "CanLoadMore"}
+          className="cursor-pointer"
         >
           {status === "CanLoadMore" ? "Load more" : ""}
         </Button>
