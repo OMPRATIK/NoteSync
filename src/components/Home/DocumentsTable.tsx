@@ -17,22 +17,24 @@ type DocumentsTableProps = {
   documents: Doc<"documents">[] | undefined;
   loadMore: (numItems: number) => void;
   status: PaginationStatus;
+  isLoading?: boolean;
 };
 
 export default function DocumentsTable({
   documents,
   loadMore,
   status,
+  isLoading,
 }: DocumentsTableProps) {
   return (
     <div className="max-w-screen-xl mx-auto px-16 flex flex-col gap-5 pt-6">
       <h3 className="font-medium">Recent documents</h3>
-      {!documents && (
+      {isLoading && (
         <div className="w-full h-full flex items-center justify-center">
           <LoaderIcon className="animate-spin text-muted-foreground size-5" />
         </div>
       )}
-      {documents && (
+      {!isLoading && documents && (
         <Table>
           {documents.length !== 0 && (
             <TableHeader>
