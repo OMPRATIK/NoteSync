@@ -103,7 +103,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="flex items-center justify-between">
+    <nav className="flex items-center justify-between dark:bg-neutral-900">
       <div className="flex gap-2 items-center">
         <Link to="/">
           <img src="/logo.svg" alt="Logo" height={48} width={48} />

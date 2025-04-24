@@ -81,7 +81,7 @@ function LineHeightButton() {
           <TooltipTrigger asChild>
             <button
               className={
-                "cursor-pointer text-sm h-7 min-w-7 flex items-center justify-center rounded-sm hover:bg-neutral-200/80"
+                "cursor-pointer text-sm h-7 min-w-7 flex items-center justify-center rounded-sm hover:bg-neutral-200/80 dark:hover:bg-neutral-700/50"
               }
             >
               <ListCollapseIcon className="size-4" />
@@ -92,9 +92,9 @@ function LineHeightButton() {
           {lineHeights.map(({ label, value }) => (
             <button
               className={cn(
-                "cursor-pointer flex items-center gap-x-2 px-2 py-1 rounded-sm hover:bg-neutral-200/80",
+                "cursor-pointer flex items-center gap-x-2 px-2 py-1 rounded-sm hover:bg-neutral-200/80 dark:hover:bg-neutral-700/50",
                 editor?.getAttributes("paragraph").lineHeight === value &&
-                  "bg-neutral-200/80"
+                  "bg-neutral-200/80 dark:bg-neutral-700/50"
               )}
               key={value}
               onClick={() => editor?.chain().focus().setLineHeight(value).run()}
@@ -176,7 +176,7 @@ function FontSizeButton() {
         <TooltipTrigger asChild>
           <button
             onClick={decrement}
-            className="cursor-pointer text-sm h-7 w-7 flex items-center justify-center rounded-sm hover:bg-neutral-200/80"
+            className="cursor-pointer text-sm h-7 w-7 flex items-center justify-center rounded-sm hover:bg-neutral-200/80 dark:hover:bg-neutral-700/50"
           >
             <MinusIcon className="size-4" />
           </button>
@@ -202,7 +202,7 @@ function FontSizeButton() {
                 setIsEditing(true);
                 setFontSize(currentFontSize);
               }}
-              className="h-7 w-10 text-sm rounded-sm border border-neutral-400 text-center bg-transparent hover:bg-neutral-200/80 cursor-pointer"
+              className="h-7 w-10 text-sm rounded-sm border border-neutral-400 text-center bg-transparent hover:bg-neutral-200/80 dark:hover:bg-neutral-700/50 cursor-pointer"
             >
               {currentFontSize}
             </button>
@@ -216,7 +216,7 @@ function FontSizeButton() {
         <TooltipTrigger asChild>
           <button
             onClick={increment}
-            className="cursor-pointer text-sm h-7 w-7 flex items-center justify-center rounded-sm hover:bg-neutral-200/80"
+            className="cursor-pointer text-sm h-7 w-7 flex items-center justify-center rounded-sm hover:bg-neutral-200/80 dark:hover:bg-neutral-700/50"
           >
             <PlusIcon className="size-4" />
           </button>
@@ -254,7 +254,7 @@ function ListButton() {
           <TooltipTrigger asChild>
             <button
               className={
-                "cursor-pointer text-sm h-7 min-w-7 flex items-center justify-center rounded-sm hover:bg-neutral-200/80"
+                "cursor-pointer text-sm h-7 min-w-7 flex items-center justify-center rounded-sm hover:bg-neutral-200/80 dark:hover:bg-neutral-700/50"
               }
             >
               <ListIcon className="size-4" />
@@ -301,7 +301,7 @@ function AlignButton() {
           <TooltipTrigger asChild>
             <button
               className={
-                "cursor-pointer text-sm h-7 min-w-7 flex items-center justify-center rounded-sm hover:bg-neutral-200/80"
+                "cursor-pointer text-sm h-7 min-w-7 flex items-center justify-center rounded-sm hover:bg-neutral-200/80 dark:hover:bg-neutral-700/50"
               }
             >
               <AlignLeftIcon className="size-4" />
@@ -312,8 +312,9 @@ function AlignButton() {
           {alignments.map(({ label, value, icon: Icon }) => (
             <button
               className={cn(
-                "cursor-pointer flex items-center gap-x-2 px-2 py-1 rounded-sm hover:bg-neutral-200/80",
-                editor?.isActive({ textAlign: value }) && "bg-neutral-200/80"
+                "cursor-pointer flex items-center gap-x-2 px-2 py-1 rounded-sm hover:bg-neutral-200/80 dark:hover:bg-neutral-700/50",
+                editor?.isActive({ textAlign: value }) &&
+                  "bg-neutral-200/80 dark:bg-neutral-700/50"
               )}
               key={value}
               onClick={() => editor?.chain().focus().setTextAlign(value).run()}
@@ -370,7 +371,7 @@ function ImageButton() {
           <TooltipTrigger asChild>
             <button
               className={
-                "cursor-pointer text-sm h-7 min-w-7 flex items-center justify-center rounded-sm hover:bg-neutral-200/80"
+                "cursor-pointer text-sm h-7 min-w-7 flex items-center justify-center rounded-sm hover:bg-neutral-200/80 dark:hover:bg-neutral-700/50"
               }
             >
               <ImageIcon className="size-4" />
@@ -438,7 +439,7 @@ function LinkButton() {
           <TooltipTrigger asChild>
             <button
               className={
-                "cursor-pointer text-sm h-7 min-w-7 flex items-center justify-center rounded-sm hover:bg-neutral-200/80"
+                "cursor-pointer text-sm h-7 min-w-7 flex items-center justify-center rounded-sm hover:bg-neutral-200/80 dark:hover:bg-neutral-700/50"
               }
             >
               <Link2Icon className="size-4" />
@@ -479,7 +480,7 @@ function HighlightColorButton() {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <div className="relative px-1 cursor-pointer h-7 min-w-7 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 overflow-hidden text-sm">
+        <div className="relative px-1 cursor-pointer h-7 min-w-7 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 dark:hover:bg-neutral-700/50 overflow-hidden text-sm">
           <HighlighterIcon className="size-4" />
           <input
             data-testid="setColor"
@@ -515,7 +516,7 @@ function TextColorButton() {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <div className="relative px-1 cursor-pointer h-7 min-w-7 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 overflow-hidden text-sm">
+        <div className="relative px-1 cursor-pointer h-7 min-w-7 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 dark:hover:bg-neutral-700/50 overflow-hidden text-sm">
           <span className="text-xs">A</span>
           <input
             data-testid="setColor"
@@ -576,8 +577,8 @@ function ToolbarButton({
         <button
           onClick={onClick}
           className={cn(
-            "cursor-pointer text-sm h-7 min-w-7 flex items-center justify-center rounded-sm hover:bg-neutral-200/80",
-            isActive && "bg-neutral-200/80"
+            "cursor-pointer text-sm h-7 min-w-7 flex items-center justify-center rounded-sm hover:bg-neutral-200/80 hover:dark:bg-neutral-700/50",
+            isActive && "bg-neutral-200/80 dark:bg-neutral-700/50"
           )}
         >
           <Icon className="size-4" />
@@ -616,7 +617,7 @@ function HeadingLevelButton() {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <TooltipTrigger asChild>
-            <button className="px-1 cursor-pointer h-7 min-w-28 flex items-center justify-center rounded-sm hover:bg-neutral-200/80 overflow-hidden text-sm">
+            <button className="px-1 cursor-pointer h-7 min-w-28 flex items-center justify-center rounded-sm hover:bg-neutral-200/80 dark:hover:bg-neutral-700/50 overflow-hidden text-sm">
               <span className="truncate">{getCurrentHeading()}</span>
               <ChevronDownIcon className="ml-2 size-4 shrink-0" />
             </button>
@@ -639,10 +640,10 @@ function HeadingLevelButton() {
               }}
               style={{ fontSize }}
               className={cn(
-                "cursor-pointer flex items-center gap-x-2 px-2 py-1 rounded-sm hover:bg-neutral-200/80",
+                "cursor-pointer flex items-center gap-x-2 px-2 py-1 rounded-sm hover:bg-neutral-200/80 dark:hover:bg-neutral-700/50",
                 (value === 0 && !editor?.isActive("heading")) ||
                   (editor?.isActive("heading", { level: value }) &&
-                    "bg-neutral-200/80")
+                    "bg-neutral-200/80 dark:bg-neutral-700/50")
               )}
             >
               {label}
@@ -676,7 +677,7 @@ function FontFamilyButton() {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <TooltipTrigger asChild>
-            <button className="px-1 cursor-pointer h-7 min-w-28 flex items-center justify-between rounded-sm hover:bg-neutral-200/80 overflow-hidden text-sm">
+            <button className="px-1 cursor-pointer h-7 min-w-28 flex items-center justify-between rounded-sm hover:bg-neutral-200/80 dark:hover:bg-neutral-700/50 overflow-hidden text-sm">
               <span className="truncate">
                 {editor?.getAttributes("textStyle").fontFamily || "Arial"}
               </span>
@@ -690,9 +691,9 @@ function FontFamilyButton() {
               onClick={() => editor?.chain().focus().setFontFamily(value).run()}
               key={value}
               className={cn(
-                "cursor-pointer flex items-center gap-x-2 px-2 py-1 rounded-sm hover:bg-neutral-200/80",
+                "cursor-pointer flex items-center gap-x-2 px-2 py-1 rounded-sm hover:bg-neutral-200/80 dark:hover:bg-neutral-700/50",
                 editor?.getAttributes("textStyle").fontFamily === value &&
-                  "bg-neutral-200/80"
+                  "bg-neutral-200/80 dark:bg-neutral-700/50"
               )}
               style={{ fontFamily: value }}
             >
@@ -783,24 +784,24 @@ export default function Toolbar() {
 
   return (
     <TooltipProvider>
-      <div className="bg-[#F1F4F9] px-2.5 py-0.5 rounded-[24px] min-h-[40px] flex items-center gap-x-0.5 overflow-x-auto">
+      <div className="dark:bg-neutral-800 bg-[#F1F4F9] px-2.5 py-0.5 rounded-[24px] min-h-[40px] flex items-center gap-x-0.5 overflow-x-auto">
         {sections[0].map((item) => (
           <ToolbarButton key={item.label} {...item} label={item.label} />
         ))}
-        <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+        <Separator orientation="vertical" className="h-6 bg-neutral-300 mx-2" />
         <FontFamilyButton />
-        <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+        <Separator orientation="vertical" className="h-6 bg-neutral-300 mx-2" />
         <HeadingLevelButton />
-        <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+        <Separator orientation="vertical" className="h-6 bg-neutral-300 mx-2" />
         <FontSizeButton />
-        <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+        <Separator orientation="vertical" className="h-6 bg-neutral-300 mx-2" />
         {sections[1].map((item) => (
           <ToolbarButton key={item.label} {...item} />
         ))}
         {/* <Separator orientation="vertical" className="h-6 bg-neutral-300" /> */}
         <TextColorButton />
         <HighlightColorButton />
-        <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+        <Separator orientation="vertical" className="h-6 bg-neutral-300 mx-2" />
         <LinkButton />
         <ImageButton />
         <AlignButton />
