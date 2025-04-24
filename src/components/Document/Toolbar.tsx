@@ -784,7 +784,7 @@ export default function Toolbar() {
 
   return (
     <TooltipProvider>
-      <div className="dark:bg-neutral-800 bg-[#F1F4F9] px-2.5 py-0.5 rounded-[24px] min-h-[40px] flex items-center gap-x-0.5 overflow-x-auto">
+      <div className="dark:bg-neutral-800 bg-[#F1F4F9] px-2.5 py-0.5 rounded-[24px] min-h-[40px] flex items-center gap-x-0.5 overflow-x-auto overflow-hidden">
         {sections[0].map((item) => (
           <ToolbarButton key={item.label} {...item} label={item.label} />
         ))}
