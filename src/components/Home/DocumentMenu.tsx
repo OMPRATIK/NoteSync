@@ -32,7 +32,7 @@ export default function DocumentMenu({
         <Button
           variant="ghost"
           size="icon"
-          className="rounded-full cursor-pointer"
+          className="rounded-full cursor-pointer p-0 sm:p-2"
           onClick={(e) => e.stopPropagation()}
         >
           <MoreVertical className="size-4" />

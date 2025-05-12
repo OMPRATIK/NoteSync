@@ -27,7 +27,7 @@ export default function DocumentsTable({
   isLoading,
 }: DocumentsTableProps) {
   return (
-    <div className="max-w-screen-xl mx-auto px-16 flex flex-col gap-5 pt-6">
+    <div className="h-full max-w-screen-xl mx-auto px-8 sm:px-16 flex flex-col gap-5 pt-6">
       <h3 className="font-medium">Recent documents</h3>
       {isLoading && (
         <div className="w-full h-full flex items-center justify-center">
@@ -40,9 +40,11 @@ export default function DocumentsTable({
             <TableHeader>
               <TableRow className="hover:bg-transparent border-none">
                 <TableHead>Name</TableHead>
-                <TableHead>&nbsp;</TableHead>
-                <TableHead>Shared</TableHead>
-                <TableHead>Created at</TableHead>
+                <TableHead className="hidden md:table-cell">&nbsp;</TableHead>
+                <TableHead className="hidden md:table-cell">Shared</TableHead>
+                <TableHead className="hidden md:table-cell">
+                  Created at
+                </TableHead>
               </TableRow>
             </TableHeader>
           )}

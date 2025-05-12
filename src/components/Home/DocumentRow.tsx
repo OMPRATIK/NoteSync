@@ -21,7 +21,9 @@ export default function DocumentRow({ document }: DocumentRowProps) {
       <TableCell className="w-[50px]">
         <SiGoogledocs className="size-6 fill-blue-500" />
       </TableCell>
-      <TableCell className="font-medium md:w-[45%]">{document.title}</TableCell>
+      <TableCell className="font-medium md:w-[45%] p-1">
+        {document.title}
+      </TableCell>
       <TableCell className="text-muted-foreground hidden md:flex items-center gap-2">
         {document.organzationId ? (
           <Building2Icon className="size-4" />

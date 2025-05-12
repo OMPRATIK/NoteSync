@@ -6,6 +6,7 @@ import {
   AlignRightIcon,
   BoldIcon,
   ChevronDownIcon,
+  EllipsisVertical,
   HighlighterIcon,
   ImageIcon,
   ItalicIcon,
@@ -540,31 +541,6 @@ function TextColorButton() {
   );
 }
 
-// function TextColorButton() {
-//   const { editor } = useEditorStore();
-
-//   const value = editor?.getAttributes("textStyle").color || "#000000";
-
-//   function onChange(color: ColorResult) {
-//     editor?.chain().focus().setColor(color.hex).run();
-//   }
-
-//   return (
-//     <DropdownMenu>
-//       <DropdownMenuTrigger asChild>
-//         <button className="px-1 cursor-pointer h-7 min-w-7 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 overflow-hidden text-sm">
-//           <span className="text-xs">A</span>
-//           <div className="h-1 w-full" style={{ backgroundColor: value }}></div>
-//         </button>
-//       </DropdownMenuTrigger>
-
-//       <DropdownMenuContent className="p-2.5">
-//         <CirclePicker color={value} onChange={onChange} />
-//       </DropdownMenuContent>
-//     </DropdownMenu>
-//   );
-// }
-
 function ToolbarButton({
   onClick,
   isActive,
@@ -617,7 +593,7 @@ function HeadingLevelButton() {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <TooltipTrigger asChild>
-            <button className="px-1 cursor-pointer h-7 min-w-28 flex items-center justify-center rounded-sm hover:bg-neutral-200/80 dark:hover:bg-neutral-700/50 overflow-hidden text-sm">
+            <button className="px-1 cursor-pointer h-7 min-w-20 sm:min-w-28 flex items-center justify-center rounded-sm hover:bg-neutral-200/80 dark:hover:bg-neutral-700/50 overflow-hidden text-sm">
               <span className="truncate">{getCurrentHeading()}</span>
               <ChevronDownIcon className="ml-2 size-4 shrink-0" />
             </button>
@@ -677,7 +653,7 @@ function FontFamilyButton() {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <TooltipTrigger asChild>
-            <button className="px-1 cursor-pointer h-7 min-w-28 flex items-center justify-between rounded-sm hover:bg-neutral-200/80 dark:hover:bg-neutral-700/50 overflow-hidden text-sm">
+            <button className="px-1 cursor-pointer h-7 min-w-20 sm:min-w-28 flex items-center justify-between rounded-sm hover:bg-neutral-200/80 dark:hover:bg-neutral-700/50 overflow-hidden text-sm">
               <span className="truncate">
                 {editor?.getAttributes("textStyle").fontFamily || "Arial"}
               </span>
@@ -784,7 +760,7 @@ export default function Toolbar() {
 
   return (
     <TooltipProvider>
-      <div className="dark:bg-neutral-800 bg-[#F1F4F9] px-2.5 py-0.5 rounded-[24px] min-h-[40px] flex items-center gap-x-0.5 overflow-x-auto overflow-hidden">
+      <div className="dark:border dark:border-zinc-700 dark:bg-neutral-800 bg-[#F1F4F9] px-2.5 py-0.5 rounded-[24px] min-h-[40px] flex items-center gap-x-0.5 overflow-x-auto overflow-hidden">
         {sections[0].map((item) => (
           <ToolbarButton key={item.label} {...item} label={item.label} />
         ))}
@@ -807,9 +783,55 @@ export default function Toolbar() {
         <AlignButton />
         <LineHeightButton />
         <ListButton />
-        {sections[2].map((item) => (
-          <ToolbarButton key={item.label} {...item} label={item.label} />
-        ))}
+        <div className="hidden lg:flex items-center gap-x-0.5">
+          {sections[2].map((item) => (
+            <ToolbarButton key={item.label} {...item} label={item.label} />
+          ))}
+        </div>
+        <div className="lg:hidden">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="rounded-full cursor-pointer p-0 sm:p-1 hover:bg-neutral-200/80 dark:hover:bg-neutral-700/50"
+              >
+                <EllipsisVertical className="size-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <div className="flex items-center gap-x-0.5">
+                <FontSizeButton />
+                <Separator
+                  orientation="vertical"
+                  className="h-6 bg-neutral-300 mx-2"
+                />
+                {sections[1].map((item) => (
+                  <ToolbarButton key={item.label} {...item} />
+                ))}
+                {/* <Separator orientation="vertical" className="h-6 bg-neutral-300" /> */}
+                <TextColorButton />
+                <HighlightColorButton />
+                <Separator
+                  orientation="vertical"
+                  className="h-6 bg-neutral-300 mx-2"
+                />
+                <LinkButton />
+                <ImageButton />
+                <AlignButton />
+                <LineHeightButton />
+                <ListButton />
+                {sections[2].map((item) => (
+                  <ToolbarButton
+                    key={item.label}
+                    {...item}
+                    label={item.label}
+                  />
+                ))}
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
     </TooltipProvider>
   );

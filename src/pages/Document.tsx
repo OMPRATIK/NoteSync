@@ -12,7 +12,7 @@ export default function Document() {
         <Navbar />
         <Toolbar />
       </div>
-      <div className="pt-[108px] print:pt-0">
+      <div className="pt-[120px] print:pt-0">
         <Editor />
       </div>
     </div>

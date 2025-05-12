@@ -21,7 +21,6 @@ export default function Home() {
       </div>
       <div className="mt-16">
         <TemplateGalary />
-
         <DocumentsTable
           documents={results}
           loadMore={loadMore}

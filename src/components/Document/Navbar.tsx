@@ -62,7 +62,7 @@ export default function Navbar() {
     {
       label: "Strikethrough",
       icon: <StrikethroughIcon className="size-4 mr-2" />,
-      shortcut: "Ctrl+S",
+      shortcut: "Ctrl+Shift+S",
       onClick: () => editor?.chain().focus().toggleStrike().run(),
     },
   ];
